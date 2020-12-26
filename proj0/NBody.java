@@ -1,5 +1,5 @@
 public class NBody {
-    public static String backGroundImage = "/images/starfield.jpg";
+    private static String backGroundImage = "/images/starfield.jpg";
     public static double readRadius(String str) {
         In in = new In(str);
         int n = in.readInt();
@@ -51,6 +51,14 @@ public class NBody {
             }
             StdDraw.show();
             StdDraw.pause(10);
+        }
+
+        StdOut.printf("%d\n", planets.length);
+        StdOut.printf("%.2e\n", radius);
+        for (int i = 0; i < planets.length; i++) {
+            StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+                    planets[i].xxPos, planets[i].yyPos, planets[i].xxVel,
+                    planets[i].yyVel, planets[i].mass, planets[i].imgFileName);
         }
 
     }
