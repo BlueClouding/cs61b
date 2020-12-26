@@ -14,13 +14,7 @@ public class NBody {
         Planet[] planets = new Planet[n];
         int i = 0;
         while (!in.isEmpty() && i < n) {
-            Planet planet = new Planet();
-            planet.xxPos = in.readDouble();
-            planet.yyPos = in.readDouble();
-            planet.xxVel = in.readDouble();
-            planet.yyVel = in.readDouble();
-            planet.mass = in.readDouble();
-            planet.imgFileName = in.readString();
+            Planet planet = new Planet(in.readDouble(),in.readDouble(),in.readDouble(),in.readDouble(),in.readDouble(),in.readString());
             planets[i++] = planet;
         }
         return planets;
@@ -33,7 +27,7 @@ public class NBody {
         double radius = NBody.readRadius(filename);
         Planet[] planets = NBody.readPlanets(filename);
 
-        StdDraw.setScale(-radius*1.5,radius*1.5);
+        StdDraw.setScale(-radius,radius);
         StdDraw.clear();
         StdDraw.picture(0,0,backGroundImage);
         for (Planet planet : planets) {
