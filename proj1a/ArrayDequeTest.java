@@ -14,7 +14,7 @@ public class ArrayDequeTest {
         adq.removeFirst();
         adq.removeLast();
         adq.printDeque();
-        System.out.println(adq.size);
+        System.out.println(adq.size());
     }
 
 
