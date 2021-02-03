@@ -1,5 +1,6 @@
 public class NBody {
     private static String backGroundImage = "/images/starfield.jpg";
+    private static String backGroundAudio = "/audio/2001.mid";
     public static double readRadius(String str) {
         In in = new In(str);
         int n = in.readInt();
@@ -37,6 +38,8 @@ public class NBody {
         StdDraw.enableDoubleBuffering();
 
         for (int i = 0; i <= T; i+=dt) {
+            //StdAudio.loop(backGroundAudio);
+
             for(Planet planet : planets) {
                 double xForces = planet.calcNetForceExertedByX(planets);
                 double yForces = planet.calcNetForceExertedByY(planets);
@@ -52,6 +55,7 @@ public class NBody {
             StdDraw.show();
             StdDraw.pause(10);
         }
+        //StdAudio.close();
 
         StdOut.printf("%d\n", planets.length);
         StdOut.printf("%.2e\n", radius);
