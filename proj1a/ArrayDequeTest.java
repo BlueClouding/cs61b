@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class ArrayDequeTest {
     public static void main(String[] args) {
         ArrayDeque<Integer> adq = new ArrayDeque<>();
@@ -9,12 +7,14 @@ public class ArrayDequeTest {
         adq.addLast(4);
 
         adq.printDeque();
-
         System.out.println();
+        System.out.println(adq.get(2));
+
         adq.removeFirst();
         adq.removeLast();
         adq.printDeque();
         System.out.println(adq.size());
+        System.out.println(adq.get(0));
     }
 
 
