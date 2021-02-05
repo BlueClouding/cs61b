@@ -3,7 +3,7 @@ public class ArrayDeque<T> {
     private int size;
     private static int initCapacity = 8;
     private static int factor = 2;
-    private static double ratio = 0.25;
+    private static double ratio = 4;
     private static int minCapacity = 16;
     private int capacity;
     private int nextFirst;
@@ -46,21 +46,21 @@ public class ArrayDeque<T> {
 
 
     public void addFirst(T item) {
-        if (size == capacity) {
-            resize(factor * capacity);
-        }
         items[nextFirst] = item;
         nextFirst = minusOne(nextFirst);
         size += 1;
-    }
-
-    public void addLast(T item) {
         if (size == capacity) {
             resize(factor * capacity);
         }
+    }
+
+    public void addLast(T item) {
         items[nextLast] = item;
         nextLast = plusOne(nextLast);
         size += 1;
+        if (size == capacity) {
+            resize(factor * capacity);
+        }
     }
 
     public boolean isEmpty() {
@@ -102,7 +102,7 @@ public class ArrayDeque<T> {
         T removeItem = items[index];
         items[index] = null;
         size -= 1;
-        if (size >= minCapacity && size / capacity < ratio) {
+        if (size >= minCapacity && ratio * size < capacity) {
             resize(capacity / factor);
         }
         return removeItem;
