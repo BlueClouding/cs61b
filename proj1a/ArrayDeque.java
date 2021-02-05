@@ -17,14 +17,14 @@ public class ArrayDeque<T> {
         capacity = initCapacity;
     }
 
-    public int minusOne(int i) {
+    private int minusOne(int i) {
         if (i == 0) {
             return capacity - 1;
         }
         return i - 1;
     }
 
-    public int plusOne(int i) {
+    private int plusOne(int i) {
         if (i == capacity - 1) {
             return 0;
         }
@@ -98,7 +98,7 @@ public class ArrayDeque<T> {
         return remove(nextLast);
     }
 
-    public T remove(int index) {
+    private T remove(int index) {
         T removeItem = items[index];
         items[index] = null;
         size -= 1;
@@ -113,6 +113,6 @@ public class ArrayDeque<T> {
             return null;
         }
         int start = plusOne(nextFirst);
-        return items[(start + index) % size];
+        return items[(start + index) % capacity];
     }
 }
