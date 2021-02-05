@@ -100,7 +100,7 @@ public class LinkedListDeque<T> {
         if (index == 0) {
             return (T) start.item;
         }
-        return (T) getHelper(index-1, start.next);
+        return (T) getHelper(index - 1, start.next);
     }
 
 }
