@@ -14,7 +14,7 @@ public class Palindrome {
         return helper(wordInDeque);
     }
 
-    public boolean helper(Deque<Character> word) {
+    private boolean helper(Deque<Character> word) {
         if (word.size() <= 1) {
             return true;
         }
@@ -29,7 +29,7 @@ public class Palindrome {
         return overloadHelper(wordInDeque, cc);
     }
 
-    public boolean overloadHelper(Deque<Character> deque, CharacterComparator cc) {
+    private boolean overloadHelper(Deque<Character> deque, CharacterComparator cc) {
         if (deque.size() <= 1) {
             return true;
         }
