@@ -39,3 +39,4 @@ public class TestOffByOne {
         assertFalse(offByOne.equalChars('A', '%'));
     }
 }
+
